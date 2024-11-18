@@ -27,3 +27,13 @@ hash_table* ht_create(void) {
 
     return table;
 }
+
+// Note: strdup is like using malloc + strcpy. So keys are allocated heap memory and need to be freed.
+void ht_destroy(hash_table* ht) {
+    if(ht == NULL) {
+        return NULL;
+    }
+
+    free(ht->ht);
+    free(ht);
+}
